@@ -23,5 +23,5 @@ def get_rhymes_table(input_filepath, output_filepath):
 
 
 if __name__ == "__main__":
-    get_rhymes_table('./words-table.txt', './rhymes-table.csv')
+    get_rhymes_table('./dataset/words-table.txt', './dataset/rhymes-table.csv')
 

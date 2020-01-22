@@ -1,9 +1,9 @@
 import pandas as pd
 from pandas.errors import DtypeWarning
 from pip._vendor.distlib.compat import raw_input
-from pypinyin.style._utils import get_initials, get_finals
+from pypinyin.style._utils import get_finals
 from pypinyin import lazy_pinyin
-from utils import validate_input_rhyme
+from src.utils import validate_input_rhyme
 import numpy as np
 import ast
 import sys
@@ -12,7 +12,7 @@ warnings.simplefilter(action='ignore', category=DtypeWarning)
 
 
 def generate_words_by_rhyme(input_word):
-    rhymes_df = pd.read_csv('./rhymes-table.csv', sep=',', header=0, encoding='utf-8')
+    rhymes_df = pd.read_csv('./dataset/rhymes-table.csv', sep=',', header=0, encoding='utf-8')
     rhymes_df = rhymes_df.iloc[:, 1:]
     word_rhyme = ''
     for rhyme in lazy_pinyin(input_word):
