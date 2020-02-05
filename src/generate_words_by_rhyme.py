@@ -24,7 +24,7 @@ def generate_words_by_rhyme(input_word):
         np.random.shuffle(rhymes_without_nan)
         corresponding_rhyme = [ast.literal_eval(i)[0] for i in rhymes_without_nan]
         corresponding_frequency = np.asarray([ast.literal_eval(i)[1] for i in rhymes_without_nan])
-        normalized_frequency = corresponding_frequency / np.sum(corresponding_frequency)
+        normalized_frequency = corresponding_frequency - np.min(corresponding_frequency) / np.max(corresponding_frequency) - np.min(corresponding_frequency)
         sample_num = min(3, len(corresponding_rhyme))
         words = np.random.choice(corresponding_rhyme, size=sample_num, replace=False, p=normalized_frequency)
         print('匹配的韵脚是：')
